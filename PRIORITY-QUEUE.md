@@ -40,5 +40,23 @@ Heap satisfies the following properties:
 1. Tree of a heap is a complete binary tree i.e. Height is always ***O(logn)***.
 2. Heap follows the order of elements internally. E.g. In a Max-Heap, parent's value is greater than equal to that of its children.
 
+#### Illustration of MAX-HEAP
+
+![Heap Tree](https://i.imgur.com/miuYCb9.jpg)
+
+![Heap Array](https://i.imgur.com/tPerrgl.jpg)
+
 In heap, the children of an element at index **'i'** are at positions (2*i + 1) and (2*i + 2) as its binary tree is completely balanced. 
 
+<br>
+Now, Let's have a look at the operations of heap:
+
+1. ***buildHeap***: From a given array, We can build a heap in *O(n)* time-complexity.
+2. ***insert***: Addition of an element to heap could be done in *O(logn)* time-complexity.
+3. ***pop***: Removes an element with highest priority from the heap in *O(logn)* time-complexity.
+4. ***seek***: Returns highest priority element from heap in *O(logn)* time-complexity.
+5. ***isEmpty***: Checks if the heap consists of any element in *O(1)* time-complexity.
+6. ***size***: Returns the count of number of elements in heap in *O(1)* time-complexity.
+
+<br>
+Now, Let's build a heap. 
