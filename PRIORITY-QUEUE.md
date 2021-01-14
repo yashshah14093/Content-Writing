@@ -60,3 +60,6 @@ Now, Let's have a look at the operations of heap:
 
 <br>
 Now, Let's build a heap. 
+
+![Build Heap](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
+
