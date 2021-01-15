@@ -1,6 +1,6 @@
 Hello Readers,
 
-Everyone of you would have taken a ride in public transport buses🚌 or trains🚝. You might have observed that the person of old age are given priority over others.
+Every one of you would have taken a ride on public transport buses🚌 or trains🚝. You might have observed that the person of old age is given priority over others.
 
 ![Public Transport](https://i.imgur.com/QQeCWil.jpeg)
 
@@ -10,7 +10,7 @@ Now let's say you have the responsibility of distribution of seats among people 
 
 > numberOfSeats = 3
 
-Alright, you might have guessed it correctly. Just Sort the array and pick 3 people with maximum age.
+Alright, you might have guessed it correctly. Just Sort the array and pick 3 people with a maximum age.
 
 --------------
 
@@ -19,9 +19,9 @@ Alright, you might have guessed it correctly. Just Sort the array and pick 3 peo
 🎯***O(n.log(n))***
 
 --------------------------------------------------------------------------------------
-But, Let's say there are m stops for the bus and at each stop one people acquiring the seat leaves and another person enteres the bus. To whom do you allot the seat? Will you do sorting again and again for each stop and allot the seat to the person with maximum age? Let's first analyze this approach...
+But, Let's say there are m stops for the bus and at each stop, one person acquiring the seat leaves and another person enters the bus. To whom do you allot the seat? Will you do sorting again and again for each stop and allow the seat to the person with maximum age? Let's first analyze this approach...
 
-Sorting for each stop will take ***O(n.log(n))*** time and doing it m times. So, the total time-complexity will be ***O(m.n.log(n))***.
+Sorting for each stop will take ***O(n.log(n))*** time and doing it m times. So, the total time complexity will be ***O(m.n.log(n))***.
 
 Now, We want to optimize the algorithm. Here comes our Data-Structure ***Priority-Queue or Heap***.
 
@@ -29,27 +29,27 @@ You might be wondering🤔, What's special in this data-structure?
 
 The above algorithm could be solved in just ***O(m.log(n))***, Isn't it is much better than before😀?
 
-Now Let's understand Priority Queue and how can it optimise our problem?
+Now Let's understand Priority Queue and how can it optimize our problem?
 
 ----------------------------------------------------------------------------------------------------------------------
 
 # Priority Queue (HEAP)
 
-In priority queue, an element with the highest priority served first than the rest of the elements. Basically, the elements are arranged in this data-structure based on priority. Priority could be of any type eg. maximum value, minimum value etc. 
+In the priority queue, an element with the highest priority served first then the rest of the elements. Basically, the elements are arranged in this data-structure based on priority. Priority could be of any type eg. maximum value, minimum value, etc. 
 
 -------------------------
 
 📝Think🤔 about how can we prioritise people in the example above?
 
-🎯Hoping you already got it, We can prioritise people based on age i.e. the person with the maximum age🧓 should be given seat first.
+🎯Hoping you already got it, We can prioritize people based on age i.e. the person with the maximum age🧓 should be given a seat first.
 
 --------------------------
 
 <br>
 Heap satisfies the following properties:
 
-1. Tree of a heap is a complete binary tree i.e. Height is always ***O(logn)***.
-2. Heap follows the order of elements internally. E.g. In a Max-Heap, parent's value is greater than equal to that of its children.
+1. The tree of a heap is a complete binary tree i.e. Height is always ***O(logn)***.
+2. Heap follows the order of elements internally. E.g. In a Max-Heap, a parent's value is greater than equal to that of its children.
 
 #### Illustration of MAX-HEAP
 
@@ -60,14 +60,14 @@ Heap satisfies the following properties:
 In heap, the children of an element at index **'i'** are at positions (2*i + 1) and (2*i + 2) as its binary tree is completely balanced. 
 
 <br>
-Now, Let's have a look at the operations of heap:
+Now, Let's have a look at the operations of the heap:
 
-1. ***buildHeap***: From a given array, We can build a heap in *O(n)* time-complexity.
-2. ***insert***: Addition of an element to heap could be done in *O(logn)* time-complexity.
-3. ***pop***: Removes an element with highest priority from the heap in *O(logn)* time-complexity.
-4. ***seek***: Returns highest priority element from heap in *O(logn)* time-complexity.
-5. ***isEmpty***: Checks if the heap consists of any element in *O(1)* time-complexity.
-6. ***size***: Returns the count of number of elements in heap in *O(1)* time-complexity.
+1. ***buildHeap***: From a given array, We can build a heap in *O(n)* time complexity.
+2. ***insert***: Addition of an element to heap could be done in *O(logn)* time complexity.
+3. ***pop***: Removes an element with the highest priority from the heap in *O(logn)* time complexity.
+4. ***seek***: Returns highest priority element from the heap in *O(logn)* time complexity.
+5. ***isEmpty***: Checks if the heap consists of any element in *O(1)* time complexity.
+6. ***size***: Returns the count of the number of elements in heap in *O(1)* time complexity.
 
 <br>
 Now, Let's build a heap. 
@@ -75,7 +75,7 @@ Now, Let's build a heap.
 ![Build Heap](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
 
-Let's declare🛠 the structure of heap keeping in mind the operations of heap.
+Let's declare🛠 the structure of the heap keeping in mind the operations of the heap.
 
     public class Heap{
 
@@ -122,7 +122,7 @@ Let's declare🛠 the structure of heap keeping in mind the operations of heap.
 -------------
 📝Now Let's say you have an array of length n and you want to build a heap from its elements. So, which function you need to implement?
 
-🎯Hoping, you got this correctly. We need to pass the array as a parameter into buildHeap function to construct🔨 a heap. 
+🎯Hoping, you got this correctly. We need to pass the array as a parameter into the buildHeap function to construct🔨 a heap. 
 
 --------------
 Let's implement it.
@@ -143,7 +143,7 @@ Let's implement it.
 ----------
 - #### slideUp
 
-If you observe the animation and code above, you will understand that after insertion of an element in the heap, You need to maintian the heap order property. If the value of children is greater than (>) its parent, then we need to swap⇆ that element with its parent. For this we can use the code💻 of ***'slideUp'*** mentioned below.
+If you observe the animation and code above, you will understand that after the insertion of an element in the heap, You need to maintain the heap order property. If the value of children is greater than (>) its parent, then we need to swap⇆ that element with its parent. For this we can use the code💻 of ***'slideUp'*** mentioned below.
 
 
      private void slideUp(int child){
@@ -168,9 +168,9 @@ If you observe the animation and code above, you will understand that after inse
 
 Let's implement other operations also.
 
-- #### Inserting an element into heap
+- #### Inserting an element into the heap
 
-Add element into heap at the end and maintain order using slideUp operation.
+Add element into a heap at the end and maintain order using slideUp operation.
 
     public void insert(int element){
         // increment size to add new element
@@ -180,9 +180,9 @@ Add element into heap at the end and maintain order using slideUp operation.
     }
     
 
-- #### Removing maximum element from the heap i.e. *'pop' operation*
+- #### Removing a maximum element from the heap i.e. *'pop' operation*
 
-📝Which element is of highest priority in heap?
+📝Which element is of the highest priority in the heap?
 
 🎯Definitely, The element at index 0. 
 
@@ -190,7 +190,7 @@ So, we just need to remove that element and again maintaining an order.
 
 But Again which operation we need to use to maintain the order.
 
-Is it slideUp? Yes you can use it but is it feasible for this operation? Actually No, In slideUp operation you need to use it for each element but the element out of order is only at index 0. We can improve the performance by only maintaining the order of the element of index 0 for which we can use slideDown operation which will be discussed in detail after the pop operation.
+Is it slideUp? Yes, you can use it but is it feasible for this operation? Actually No, In slideUp operation you need to use it for each element but the element out of order is only at index 0. We can improve the performance by only maintaining the order of the element of index 0 for which we can use slideDown operation which will be discussed in detail after the pop operation.
 
     public int pop(){
         if(isEmpty())
@@ -210,7 +210,7 @@ Is it slideUp? Yes you can use it but is it feasible for this operation? Actuall
  
  First focus on which index we need to apply the slideDown operation.
  
- The parent's index which is not following heap order property with its child's index. This could be solved by swapping⇆ parent element with the maximum value among the child elements.
+ The parent's index which is not following heap order property with its child's index. This could be solved by swapping⇆ the parent element with the maximum value among the child elements.
  
  Have a look at the implementation below.
  
@@ -237,13 +237,13 @@ Is it slideUp? Yes you can use it but is it feasible for this operation? Actuall
  
  ------------
     
-Now, Let's get back to our example discussed in the starting of the blog.
+Now, Let's get back to our example discussed at the starting of the blog.
 
-The notion of that example is that at each stop the passenger of highest age leaves the bus and the new passenger enteres. So, At each stop we have to allot the seat to the passenger with maximum age.
+The notion of that example is that at each stop the passenger of the highest age leaves the bus and the new passenger enters. So, At each stop, we have to allow the seat to the passenger with a maximum age.
 
 So, how heap improves our algorithm🙄?
 
-We can pop(leaveing the bus) the passenger 🧍‍ from the heap in O(logn) time-complexity and insert the new passenger in O(logn) time-complexity. So the *Overall time-complexity of our algorithm will be **O(m.log(n))***.
+We can pop(leaving the bus) the passenger 🧍‍ from the heap in O(logn) time complexity and insert the new passenger in O(logn) time-complexity. So the *Overall time-complexity of our algorithm will be **O(m.log(n))***.
 
 Hope you understood the heap and its operations🏆.
 
