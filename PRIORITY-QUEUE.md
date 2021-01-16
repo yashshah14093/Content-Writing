@@ -51,13 +51,24 @@ Heap satisfies the following properties:
 1. The tree of a heap is a complete binary tree i.e. Height is always ***O(logn)***.
 2. Heap follows the order of elements internally. E.g. In a Max-Heap, a parent's value is greater than equal to that of its children.
 
+---------
+📝What is a complete binary tree?
+
+🎯In a complete binary tree:
+
+  - Every level is filled with nodes except the last.
+  - Nodes are aligned from left to right.
+  - So, the maximum height is log(N).
+  
+------------
+
 #### Illustration of MAX-HEAP
 
 
 <div style="display:flex;">
 <img src="https://i.imgur.com/eI7kJgc.jpg" alt="drawing" width="400" height="250"/>
 <br>
-<img src="https://i.imgur.com/ZFWgiMz.jpg" alt="drawing" width="600" height="60"/>
+<img src="https://i.imgur.com/ZFWgiMz.jpg" alt="drawing" width="450" height="60"/>
 </div>
 
 
@@ -72,6 +83,7 @@ Now, Let's have a look at the operations of the heap:
 4. ***seek***: Returns highest priority element from the heap in *O(logn)* time complexity.
 5. ***isEmpty***: Checks if the heap consists of any element in *O(1)* time complexity.
 6. ***size***: Returns the count of the number of elements in heap in *O(1)* time complexity.
+7. ***heapify***: Orders the heap on the index that violates the heap property in *O(logn)* time complexity.
 
 <br>
 Now, Let's build a heap. 
@@ -117,57 +129,44 @@ Let's declare🛠 the structure of the heap keeping in mind the operations of th
         public int pop(){
             // discussed below
         }
-
-        private void slideUp(int childIndex){
+        
+        private void heapify(int index){
             // discussed below
         }
+        
     }
 
 -------------
 📝Now Let's say you have an array of length n and you want to build a heap from its elements. So, which function you need to implement?
 
-🎯Hoping, you got this correctly. We need to pass the array as a parameter into the buildHeap function to construct🔨 a heap. 
+🎯Hoping, you got this correctly. We need to pass the array as a parameter into the buildHeap function to construct🔨 a heap of that array. 
 
 --------------
 Let's implement it.
 
-    public buildHeap(int[] arr){
+--------
+
+- #### Heapify
+
+    public heapify(int index){
         size = arr.length;
-
-        // Copy elements of arr into heap array
-        for(int index = 0; index < size; index++)
-            heap[index] = arr[index];
-
-        // Arrange the elements based on Max-Heap property
-        for(int i = 0; i < size; i++)
-            slideUp(i); // discussed below
-
-    }
-
-----------
-- #### slideUp
-
-If you observe the animation and code above, you will understand that after the insertion of an element in the heap, You need to maintain the heap order property. If the value of children is greater than (>) its parent, then we need to swap⇆ that element with its parent. For this we can use the code💻 of ***'slideUp'*** mentioned below.
-
-
-     private void slideUp(int child){
-      
-        int parent = (child-1)/2;
-
-        int temp;
-
-        if(parent < 0){
-            return;
-        }
-
-        if(heap[parent] < heap[child]){
-            temp = heap[parent];
-            heap[parent] = heap[child];
-            heap[child] = temp;
-            slideUp(parent);
+        int largest = index;
+        int leftChild = 2*index+1;
+        int rightChild = 2*index+2;
+        
+        if(leftChild < size && heap[leftChild] > heap[largest])
+            largest = leftChild;
+        if(rightChild < size && heap[rightChild] > heap[largest])
+            largest = rightChild;
+            
+        if(largest != index){
+            int temp = heap[largest];
+            heap[largest] = heap[index];
+            heap[index] = temp;
+            heapify(largest);
         }
     }
-    
+
 ---------
 
 Let's implement other operations also.
