@@ -231,6 +231,10 @@ First of all swap the element at index 0 with the last index. and Then use heapi
 
 Return the element of last index and then decrease the size of heap.
 
+![Pop Operation](https://i.imgur.com/x5nSkP5.gif)
+
+Implementation:
+
     public int pop(){
         if(isEmpty())
             throw new IllegalStateException();
@@ -258,7 +262,7 @@ Steps to delete an element:
 
 Have a look at the animation below to understand it better:
 
-===========
+![Delete Operation](https://i.imgur.com/BHbhMni.gif)
 
 Implementation:
 
