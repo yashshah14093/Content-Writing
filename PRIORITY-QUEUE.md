@@ -84,6 +84,7 @@ Now, Let's have a look at the operations of the heap:
 5. ***isEmpty***: Checks if the heap consists of any element in *O(1)* time complexity.
 6. ***size***: Returns the count of the number of elements in heap in *O(1)* time complexity.
 7. ***heapify***: Orders the heap on the index that violates the heap property in *O(logn)* time complexity.
+8. ***deleteElement***: Removes the element from the heap in *O(n)* time complexity.
 
 <br>
 Now, Let's build a heap. 
@@ -136,6 +137,9 @@ Let's declare🛠 the structure of the heap keeping in mind the operations of th
         
     }
 
+
+## HEAP OPERATIONS
+
 -------------
 📝Now Let's say you have an array of length n and you want to build a heap from its elements. So, which function you need to implement?
 
@@ -168,6 +172,12 @@ Let's implement this operation:
 
 - #### Heapify
 
+Heapify operation orders the heapArray at the given index to follow heap property.
+
+To understand heapify operation on heap have a look at the animation below: 
+
+================
+
       public heapify(int index){
           size = arr.length;
           int largest = index;
@@ -189,19 +199,23 @@ Let's implement this operation:
 
 ---------
 
-Let's implement other operations also.
-
 - #### Inserting an element into the heap
 
-Add element into a heap at the end and maintain order using slideUp operation.
+Add element into a heap at the end and maintain order using heapify operation.
+
+![Insertion Operation](https://i.imgur.com/7hOLrl9.gif)
 
     public void insert(int element){
         // increment size to add new element
         size = size + 1;
         heap[size-1] = element; // heap Array follows zero'th index
-        slideUp(size-1);
+        
+        // Arrange the elements to follow heap property
+        for(int i = (size/2); i >= 0; i--)
+            heapify(i);
     }
     
+--------------------
 
 - #### Removing a maximum element from the heap i.e. *'pop' operation*
 
@@ -211,9 +225,11 @@ Add element into a heap at the end and maintain order using slideUp operation.
 
 So, we just need to remove that element and again maintaining an order.
 
-But Again which operation we need to use to maintain the order.
+But Again which operations we need to use to maintain the order.
 
-Is it slideUp? Yes, you can use it but is it feasible for this operation? Actually No, In slideUp operation you need to use it for each element but the element out of order is only at index 0. We can improve the performance by only maintaining the order of the element of index 0 for which we can use slideDown operation which will be discussed in detail after the pop operation.
+First of all swap the element at index 0 with the last index. and Then use heapify to again reorder the elements at index 0.
+
+Return the element of last index and then decrease the size of heap.
 
     public int pop(){
         if(isEmpty())
@@ -222,43 +238,51 @@ Is it slideUp? Yes, you can use it but is it feasible for this operation? Actual
         int value = heap[0];
         heap[0] = heap[size-1];
         size = size - 1;
-        slideDown(0); // discussed below
+        heapify(0);
         return value;
     }
     
- 
- - #### Slide Down
- 
- In the slideUp operation, we compare the child element with the parent's value. But here we need to do just the opposite of it. 
- 
- First focus on which index we need to apply the slideDown operation.
- 
- The parent's index which is not following heap order property with its child's index. This could be solved by swapping⇆ the parent element with the maximum value among the child elements.
- 
- Have a look at the implementation below.
- 
-     private void slideDown(int parent){
-        int leftChild = 2*parent + 1;
-        int rightChild = 2*parent + 2;
-        int childIndex = null;
-        int temp;
+ ---------------
+    
+- #### Delete an element
 
-        if(leftChild < size)
-            childIndex = leftChild;
+Steps to delete an element:
 
-        if(rightChild < size && heap[leftChild] < heap[rightChild])
-            childIndex = rightChild;
+1. Find the index of an element that we want to delete.
 
-        if(childIndex && heap[parent] < heap[childIndex]){
-            temp = heap[parent];
-            heap[parent] = heap[childIndex];
-            heap[childIndex] = temp;
-            slideDown(childIndex);
-        }
+2. Swap that element with that index.
+
+3. Decrement the size of heap by 1.
+
+4. Apply heapify operation.
+
+Have a look at the animation below to understand it better:
+
+===========
+
+Implementation:
+
+    public void deleteElement(int num){
+
+        int i;
+        // Search the index of num
+        for(i = 0; i < size; i++)
+            if(num == heap[i])
+                break
+
+        // Swap operation of the num with the last index of the heap
+        int temp = heap[i];
+        heap[i] = heap[size-1];
+        heap[size-1] = temp;
+        size = size - 1;
+
+        // Apply heapify
+        for(int j = (size/2); j >= 0; j--)
+            heapify(j);
 
     }
- 
- ------------
+
+---------------------------------------
     
 Now, Let's get back to our example discussed at the starting of the blog.
 
