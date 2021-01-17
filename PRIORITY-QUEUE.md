@@ -103,7 +103,7 @@ Let's declare🛠 the structure of the heap keeping in mind the operations of th
             size = 0;
         }
 
-        public int buildHeap(int[] arr){
+        public void buildHeap(int[] arr){
             // discussed below
         }
 
@@ -152,30 +152,40 @@ Have a look at the animation below:
 
 Let's implement this operation:
 
+    public void buildHeap(int[] arr){
 
+        size = arr.length;
+        // Copy elements of array arr to heaparray heap
+        for(int i = 0; i < size; i++)
+            heap[i] = arr[i];
+
+        // building heap of heaparray 'heap'
+        for(int i = (size/2); i >= 0; i--)
+            heapify(i);
+    }
 
 --------
 
 - #### Heapify
 
-    public heapify(int index){
-        size = arr.length;
-        int largest = index;
-        int leftChild = 2*index+1;
-        int rightChild = 2*index+2;
-        
-        if(leftChild < size && heap[leftChild] > heap[largest])
-            largest = leftChild;
-        if(rightChild < size && heap[rightChild] > heap[largest])
-            largest = rightChild;
-            
-        if(largest != index){
-            int temp = heap[largest];
-            heap[largest] = heap[index];
-            heap[index] = temp;
-            heapify(largest);
-        }
-    }
+      public heapify(int index){
+          size = arr.length;
+          int largest = index;
+          int leftChild = 2*index+1;
+          int rightChild = 2*index+2;
+
+          if(leftChild < size && heap[leftChild] > heap[largest])
+              largest = leftChild;
+          if(rightChild < size && heap[rightChild] > heap[largest])
+              largest = rightChild;
+
+          if(largest != index){
+              int temp = heap[largest];
+              heap[largest] = heap[index];
+              heap[index] = temp;
+              heapify(largest);
+          }
+      }
 
 ---------
 
