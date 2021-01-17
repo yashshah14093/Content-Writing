@@ -152,7 +152,7 @@ In this operation an unordered array is passed as a parameter which is transform
 
 Have a look at the animation below:
 
-=========
+![buildHeap Operation](https://i.imgur.com/kHRNzFQ.gif)
 
 Let's implement this operation:
 
@@ -176,7 +176,7 @@ Heapify operation orders the heapArray at the given index to follow heap propert
 
 To understand heapify operation on heap have a look at the animation below: 
 
-================
+![Heapify Operation](https://i.imgur.com/8azbFmG.gif)
 
       public heapify(int index){
           size = arr.length;
