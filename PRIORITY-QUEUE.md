@@ -142,7 +142,17 @@ Let's declare🛠 the structure of the heap keeping in mind the operations of th
 🎯Hoping, you got this correctly. We need to pass the array as a parameter into the buildHeap function to construct🔨 a heap of that array. 
 
 --------------
-Let's implement it.
+- #### buildHeap
+
+In this operation an unordered array is passed as a parameter which is transformed into an ordered heap. In this operation an heapify operation is performed on all the non-leaf nodes to order them in a correct priority.
+
+Have a look at the animation below:
+
+=========
+
+Let's implement this operation:
+
+
 
 --------
 
