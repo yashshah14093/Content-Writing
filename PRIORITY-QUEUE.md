@@ -1,3 +1,7 @@
+# PART-1: Story Time😊
+
+------------------------------------------------------------
+
 Hello Readers,
 
 Every one of you would have taken a ride on public transport buses🚌 or trains🚝. You might have observed that the person of old age is given priority over others.
@@ -33,6 +37,8 @@ Now Let's understand Priority Queue and how can it optimize our problem?
 
 ----------------------------------------------------------------------------------------------------------------------
 
+# PART-2: INTRODUCTION
+
 # Priority Queue (HEAP)
 
 In the priority queue, an element with the highest priority served first then the rest of the elements. Basically, the elements are arranged in this data-structure based on priority. Priority could be of any type eg. maximum value, minimum value, etc. 
@@ -62,19 +68,13 @@ Heap satisfies the following properties:
   
 ------------
 
-#### Illustration of MAX-HEAP
+-------------------------------------------------------------------------------
 
+# Exercise - Part-2
 
-<div style="display:flex;">
-<img src="https://i.imgur.com/eI7kJgc.jpg" alt="drawing" width="400" height="250"/>
-<br>
-<img src="https://i.imgur.com/ZFWgiMz.jpg" alt="drawing" width="450" height="60"/>
-</div>
+-------------------------------------------------------------------------------
 
-
-In heap, the children of an element at index **'i'** are at positions (2*i + 1) and (2*i + 2) as its binary tree is completely balanced. 
-
--------------------
+# PART-3: Building Complete Binary Tree
 
 #### Building Complete Binary Tree from an array
 
@@ -88,10 +88,26 @@ Also, for the indices of a children let's say i, **Parent** index will be: *floo
 
 So, we can add edges from those children to its parent. For each node we have to perform this operation until for any node, one or more children are available.
 
--------------------
+------------------------------------------------------------------------------
+
+# PART-4: MAX-HEAP
+
+#### Illustration of MAX-HEAP
 
 
+<div style="display:flex;">
+<img src="https://i.imgur.com/eI7kJgc.jpg" alt="drawing" width="400" height="250"/>
 <br>
+<img src="https://i.imgur.com/ZFWgiMz.jpg" alt="drawing" width="450" height="60"/>
+</div>
+
+
+In heap, the children of an element at index **'i'** are at positions (2*i + 1) and (2*i + 2) as its binary tree is completely balanced. 
+
+---------------------------------------------------------------------------
+
+# PART-5: OPERATIONS OF HEAP
+
 Now, Let's have a look at the operations of the heap:
 
 1. ***buildHeap***: From a given array, We can build a heap in *O(n)* time complexity.
@@ -103,7 +119,10 @@ Now, Let's have a look at the operations of the heap:
 7. ***heapify***: Orders the heap on the index that violates the heap property in *O(logn)* time complexity.
 8. ***deleteElement***: Removes the element from the heap in *O(n)* time complexity.
 
-<br>
+--------------------------------------------------------------------------------------
+
+# PART-6: BUILDING A HEAP
+
 Now, Let's build a heap. 
 
 ![Build Heap](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
@@ -154,8 +173,42 @@ Let's declare🛠 the structure of the heap keeping in mind the operations of th
         
     }
 
+----------------------------------------------------------------------------------------------------------
 
-## HEAP OPERATIONS
+# PART-7: HEAPIFY OPERATION
+
+- #### Heapify
+
+Heapify operation orders the heapArray at the given index to follow heap property.
+
+To understand heapify operation on heap have a look at the animation below: 
+
+![Heapify Operation](https://i.imgur.com/8azbFmG.gif)
+
+      public heapify(int index){
+          size = arr.length;
+          int largest = index;
+          int leftChild = 2*index+1;
+          int rightChild = 2*index+2;
+
+          if(leftChild < size && heap[leftChild] > heap[largest])
+              largest = leftChild;
+          if(rightChild < size && heap[rightChild] > heap[largest])
+              largest = rightChild;
+
+          if(largest != index){
+              int temp = heap[largest];
+              heap[largest] = heap[index];
+              heap[index] = temp;
+              heapify(largest);
+          }
+      }
+
+**Time-Complexity**: To calculate time-complexity, We need to find the number of swap operation for the complete binary tree with N nodes. In the worst case the number of swap operations for a node is the height of its subtree which is *O(h)*. So, the time-complexity will ***O(log(n))*** for the heapify operation.
+
+------------------------------------------------------------------------------------------------------
+
+# PART-8: BUILDHEAP OPERATION
 
 -------------
 📝Now Let's say you have an array of length n and you want to build a heap from its elements. So, which function you need to implement?
@@ -191,38 +244,9 @@ Let's implement this operation:
 
 This uses the fact that the given infinite series ![buildHeap Operation](https://wikimedia.org/api/rest_v1/media/math/render/svg/c346abeef6557578d06d71e709ff29c9e96a6f49) converges.
 
---------
+----------------------------------------------------------------------------------------------
 
-- #### Heapify
-
-Heapify operation orders the heapArray at the given index to follow heap property.
-
-To understand heapify operation on heap have a look at the animation below: 
-
-![Heapify Operation](https://i.imgur.com/8azbFmG.gif)
-
-      public heapify(int index){
-          size = arr.length;
-          int largest = index;
-          int leftChild = 2*index+1;
-          int rightChild = 2*index+2;
-
-          if(leftChild < size && heap[leftChild] > heap[largest])
-              largest = leftChild;
-          if(rightChild < size && heap[rightChild] > heap[largest])
-              largest = rightChild;
-
-          if(largest != index){
-              int temp = heap[largest];
-              heap[largest] = heap[index];
-              heap[index] = temp;
-              heapify(largest);
-          }
-      }
-
-**Time-Complexity**: To calculate time-complexity, We need to find the number of swap operation for the complete binary tree with N nodes. In the worst case the number of swap operations for a node is the height of its subtree which is *O(h)*. So, the time-complexity will ***O(log(n))*** for the heapify operation.
-
----------
+# PART-9: INSERT OPERATION
 
 - #### Inserting an element into the heap
 
@@ -242,7 +266,9 @@ Add element into a heap at the end and maintain order using heapify operation.
     
 **Time-Complexity**: In this operation, we need to compare elements from the leaf till root of the tree which is equal to the height of the tree. Therefore the time-complexity is O(height) = ***O(log(n))***.
     
---------------------
+------------------------------------------------------------------------------------------------
+
+# PART-10: POP OPERATION
 
 - #### Removing a maximum element from the heap i.e. *'pop' operation*
 
@@ -275,7 +301,9 @@ Implementation:
     
 **Time-Complexity**: In this operation, we are performing just one swap operation and a heapify operation at the root of the tree. Thus, the time-complexity of this operation is same as that of heapify operation that is: ***O(log(n))***.
     
- ---------------
+ -----------------------------------------------------------------------------------------------------
+ 
+ # PART-11: Delete Operation
     
 - #### Delete an element
 
@@ -316,7 +344,9 @@ Implementation:
 
 **Time Complexity**: Searching an element will take *O(n)* time-complexity. Then one swap operation to swap that element with the last element. and Then again buildHeap operation which will take *O(n)* time-complexity. So, the overall time-complexity is ***O(n)***.
 
----------------------------------------
+---------------------------------------------------------------------------
+
+# PART-12: ENDING NOTE
     
 Now, Let's get back to our example discussed at the starting of the blog.
 
