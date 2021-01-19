@@ -74,6 +74,23 @@ Heap satisfies the following properties:
 
 In heap, the children of an element at index **'i'** are at positions (2*i + 1) and (2*i + 2) as its binary tree is completely balanced. 
 
+-------------------
+
+#### Building Complete Binary Tree from an array
+
+For a parent at index i(root of the tree is of index 0), What are its children?
+
+**Children-1**: Index *2*i + 1*
+
+Children-2: Index *2*i + 2*
+
+Also, for the indices of a children let's say i, **Parent** index will be: *floor((i-1)/2)*.
+
+So, we can add edges from those children to its parent. For each node we have to perform this operation until for any node, one or more children are available.
+
+-------------------
+
+
 <br>
 Now, Let's have a look at the operations of the heap:
 
@@ -167,6 +184,12 @@ Let's implement this operation:
         for(int i = (size/2); i >= 0; i--)
             heapify(i);
     }
+    
+**Time-Complexity**: To calculate time-complexity, We need to find the number of swap operation for the complete binary tree with N nodes. In the worst case the number of swap operations for a node is the height of its subtree which is *O(h)*. The number of nodes at height *h* is <= 2^floor(log(n))/2^h <= n/2^h. Therefore, the cost of heapifying all subtrees is:
+
+![buildHeap Operation](https://i.imgur.com/ijUzHcn.jpg)
+
+This uses the fact that the given infinite series ![buildHeap Operation](https://wikimedia.org/api/rest_v1/media/math/render/svg/c346abeef6557578d06d71e709ff29c9e96a6f49) converges.
 
 --------
 
@@ -197,6 +220,8 @@ To understand heapify operation on heap have a look at the animation below:
           }
       }
 
+**Time-Complexity**: To calculate time-complexity, We need to find the number of swap operation for the complete binary tree with N nodes. In the worst case the number of swap operations for a node is the height of its subtree which is *O(h)*. So, the time-complexity will ***O(log(n))*** for the heapify operation.
+
 ---------
 
 - #### Inserting an element into the heap
@@ -211,9 +236,11 @@ Add element into a heap at the end and maintain order using heapify operation.
         heap[size-1] = element; // heap Array follows zero'th index
         
         // Arrange the elements to follow heap property
-        for(int i = (size/2); i >= 0; i--)
+        for(int i = ((size-2)/2); i >= 0; i = (i-1)/2)
             heapify(i);
     }
+    
+**Time-Complexity**: In this operation, we need to compare elements from the leaf till root of the tree which is equal to the height of the tree. Therefore the time-complexity is O(height) = ***O(log(n))***.
     
 --------------------
 
@@ -245,6 +272,8 @@ Implementation:
         heapify(0);
         return value;
     }
+    
+**Time-Complexity**: In this operation, we are performing just one swap operation and a heapify operation at the root of the tree. Thus, the time-complexity of this operation is same as that of heapify operation that is: ***O(log(n))***.
     
  ---------------
     
@@ -281,10 +310,11 @@ Implementation:
         size = size - 1;
 
         // Apply heapify
-        for(int j = (size/2); j >= 0; j--)
-            heapify(j);
+        buildHeap(heap);
 
     }
+
+**Time Complexity**: Searching an element will take *O(n)* time-complexity. Then one swap operation to swap that element with the last element. and Then again buildHeap operation which will take *O(n)* time-complexity. So, the overall time-complexity is ***O(n)***.
 
 ---------------------------------------
     
