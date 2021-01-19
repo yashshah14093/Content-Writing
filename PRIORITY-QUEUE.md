@@ -80,9 +80,9 @@ In heap, the children of an element at index **'i'** are at positions (2*i + 1) 
 
 For a parent at index i(root of the tree is of index 0), What are its children?
 
-**Children-1**: Index *2*i + 1*
+**Children-1**: Index ***2*i + 1**
 
-Children-2: Index *2*i + 2*
+**Children-2**: Index ***2*i + 2**
 
 Also, for the indices of a children let's say i, **Parent** index will be: *floor((i-1)/2)*.
 
