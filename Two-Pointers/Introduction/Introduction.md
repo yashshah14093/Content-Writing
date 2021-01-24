@@ -16,18 +16,18 @@ Let's classify the application of this algorithm in six different ways:
 
 <img src = "https://i.imgur.com/Gb6TJbr.jpg" height = 200 width = 400>
 
-***3. Old and new state***
+## 3. Old and new state
 
 <img src="https://i.imgur.com/FQ2tHKR.png" height = 200 width = 400> 
 
-***4. Start and end of sliding window***
+## 4. Start and end of sliding window
 
 <img src="https://i.imgur.com/m91R02d.jpg" height = 200 width = 400> 
 
-***5. Slow and fast runner***
+## 5. Slow and fast runner
 
 <img src="https://i.imgur.com/vXYi1md.jpg" height = 200 width = 400> 
 
-***6. Three Pointers***
+## 6. Three Pointers
 
 <img src="https://i.imgur.com/DySaN6S.png" height = 200 width = 400> 
