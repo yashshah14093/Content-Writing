@@ -8,3 +8,6 @@
 
 - https://github.com/pllk/cphb/
 
+- https://www.educative.io/edpresso
+
+- https://stackoverflow.com/
