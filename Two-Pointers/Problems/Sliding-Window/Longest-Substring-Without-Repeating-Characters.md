@@ -11,7 +11,7 @@ Given a string s, find the length of the longest substring without repeating cha
 ### Explanation: 
     The answer is "abc", with the length of 3.
     
-    ----------------------------------------------------------------------
+----------------------------------------------------------------------
     
 ## Solution
 
@@ -21,7 +21,7 @@ Given a string s, find the length of the longest substring without repeating cha
   - move the ***end*** pointer to scan through the string, While updating Map.
   - If the character is already in the Map, then move the ***start*** pointer to the right of the same character last found.
   
-  -----------------------------------------------
+-----------------------------------------------
   
 ### Python Code
 
