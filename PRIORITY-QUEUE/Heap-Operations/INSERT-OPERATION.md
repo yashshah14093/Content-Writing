@@ -11,9 +11,14 @@ Add element into a heap at the end and maintain order using heapify operation.
         size = size + 1;
         heap[size-1] = element; // heap Array follows zero'th index
         
+        int child = size-1;
+        int parent;
         // Arrange the elements to follow heap property
-        for(int i = ((size-2)/2); i >= 0; i = (i-1)/2)
-            heapify(i);
+        while(child > 0){
+            parent = (child-1)/2;
+            heapify(parent);
+            child = parent;
+        }
     }
     
 **Time-Complexity**: In this operation, we need to compare elements from the leaf till root of the tree which is equal to the height of the tree. Therefore the time-complexity is O(height) = ***O(log(n))***.
